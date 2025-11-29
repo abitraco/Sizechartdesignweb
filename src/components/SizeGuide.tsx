@@ -4,23 +4,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 // --- Data Definition ---
 
 const WOMEN_TOPS = [
-  { size: 'XXS', num: '32', kr: '33', bust: '74-78', waist: '58-62', hips: '79-83' },
-  { size: 'XS', num: '34', kr: '44', bust: '78-82', waist: '62-66', hips: '83-87' },
-  { size: 'S', num: '36 ~ 38', kr: '55', bust: '82-90', waist: '66-74', hips: '87-94.5' },
-  { size: 'M', num: '40 ~ 42', kr: '66', bust: '90-98', waist: '74-82.5', hips: '94.5-100.5' },
-  { size: 'L', num: '44 ~ 46', kr: '77', bust: '98-107', waist: '82.5-93', hips: '100.5-107.5' },
-  { size: 'XL', num: '48 ~ 50', kr: '88', bust: '107-119', waist: '93-105', hips: '107.5-117.5' },
-  { size: 'XXL', num: '52 ~ 54', kr: '99', bust: '119-131', waist: '105-117.5', hips: '117.5-128' },
+  { size: 'XXS', num: '32', kr: '33', bust: '74-78', waist: '58-62' },
+  { size: 'XS', num: '34', kr: '44', bust: '78-82', waist: '62-66' },
+  { size: 'S', num: '36 ~ 38', kr: '55', bust: '82-90', waist: '66-74' },
+  { size: 'M', num: '40 ~ 42', kr: '66', bust: '90-98', waist: '74-82.5' },
+  { size: 'L', num: '44 ~ 46', kr: '77', bust: '98-107', waist: '82.5-93' },
+  { size: 'XL', num: '48 ~ 50', kr: '88', bust: '107-119', waist: '93-105' },
+  { size: 'XXL', num: '52 ~ 54', kr: '99', bust: '119-131', waist: '105-117.5' },
 ];
 
 const WOMEN_BOTTOMS = [
-  { size: 'XXS', num: '32', kr: '33', waist: '58-62', hips: '79-83' },
-  { size: 'XS', num: '34', kr: '44', waist: '62-66', hips: '83-87' },
-  { size: 'S', num: '36 ~ 38', kr: '55', waist: '66-74', hips: '87-94.5' },
-  { size: 'M', num: '40 ~ 42', kr: '66', waist: '74-82.5', hips: '94.5-100.5' },
-  { size: 'L', num: '44 ~ 46', kr: '77', waist: '82.5-93', hips: '100.5-107.5' },
-  { size: 'XL', num: '48 ~ 50', kr: '88', waist: '93-105', hips: '107.5-117.5' },
-  { size: 'XXL', num: '52 ~ 54', kr: '99', waist: '105-117.5', hips: '117.5-128' },
+  { size: 'XXS', num: '32', kr: '33', waist: '58-62' },
+  { size: 'XS', num: '34', kr: '44', waist: '62-66' },
+  { size: 'S', num: '36 ~ 38', kr: '55', waist: '66-74' },
+  { size: 'M', num: '40 ~ 42', kr: '66', waist: '74-82.5' },
+  { size: 'L', num: '44 ~ 46', kr: '77', waist: '82.5-93' },
+  { size: 'XL', num: '48 ~ 50', kr: '88', waist: '93-105' },
+  { size: 'XXL', num: '52 ~ 54', kr: '99', waist: '105-117.5' },
 ];
 
 const MEN_TOPS = [
@@ -33,11 +33,11 @@ const MEN_TOPS = [
 ];
 
 const MEN_BOTTOMS = [
-  { size: 'XS', num: '38', kr: '28', waist: '74-78', hips: '90-94' },
-  { size: 'S', num: '40', kr: '30', waist: '78-82', hips: '94-98' },
-  { size: 'M', num: '42-44', kr: '32-34', waist: '82-90', hips: '98-106' },
-  { size: 'L', num: '46-48', kr: '36-38', waist: '90-98', hips: '106-114' },
-  { size: 'XL', num: '50', kr: '40', waist: '98-102', hips: '114-118' },
+  { size: 'XS', num: '38', kr: '28', waist: '74-78' },
+  { size: 'S', num: '40', kr: '30', waist: '78-82' },
+  { size: 'M', num: '42-44', kr: '32-34', waist: '82-90' },
+  { size: 'L', num: '46-48', kr: '36-38', waist: '90-98' },
+  { size: 'XL', num: '50', kr: '40', waist: '98-102' },
 ];
 
 const SHOES_DATA = [
@@ -66,10 +66,10 @@ const BrandHeader = ({ brand, url, description, LogoComponent }: any) => (
       {LogoComponent}
     </div>
     {url && (
-      <a 
-        href={url} 
-        target="_blank" 
-        rel="noreferrer" 
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
         className="text-slate-400 font-bold text-lg hover:text-slate-600 transition-colors"
       >
         {url}
@@ -139,14 +139,14 @@ const BrandPage = ({ brand, url, description, LogoComponent }: any) => {
       </div>
 
       {/* Box 2: Size Guide Content */}
-      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-10">
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-2 md:p-10">
         <Tabs defaultValue="women" className="w-full">
           <TabsList className="w-full h-auto grid grid-cols-4 bg-slate-50 p-1 rounded-xl gap-1 mb-10">
             {['women', 'men', 'shoes', 'kids'].map((tab) => (
-              <TabsTrigger 
-                  key={tab} 
-                  value={tab}
-                  className="text-xs md:text-sm font-bold py-2.5 rounded-lg data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm text-slate-400 capitalize"
+              <TabsTrigger
+                key={tab}
+                value={tab}
+                className="text-xs md:text-sm font-bold py-2.5 rounded-lg data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm text-slate-400 capitalize"
               >
                 {tab === 'women' ? '여성' : tab === 'men' ? '남성' : tab === 'shoes' ? '신발' : '키즈'}
               </TabsTrigger>
@@ -155,49 +155,49 @@ const BrandPage = ({ brand, url, description, LogoComponent }: any) => {
 
           <TabsContent value="women">
             <TableHeader title={`${brand} 여성 사이즈 가이드`} subtitle="(단위 : CM, 신체 사이즈 기준)" />
-            <SizeTable 
+            <SizeTable
               title="탑 / 블라우스 / 원피스"
-              columns={['사이즈', '사이즈', '한국', '가슴둘레', '허리둘레', '엉덩이']}
-              keys={['size', 'num', 'kr', 'bust', 'waist', 'hips']}
+              columns={['사이즈', '사이즈', '한국', '가슴둘레', '허리둘레']}
+              keys={['size', 'num', 'kr', 'bust', 'waist']}
               data={WOMEN_TOPS}
             />
-            <SizeTable 
+            <SizeTable
               title="스커트 / 바지"
-              columns={['사이즈', '사이즈', '한국', '허리둘레', '엉덩이']}
-              keys={['size', 'num', 'kr', 'waist', 'hips']}
+              columns={['사이즈', '사이즈', '한국', '허리둘레']}
+              keys={['size', 'num', 'kr', 'waist']}
               data={WOMEN_BOTTOMS}
             />
           </TabsContent>
 
           <TabsContent value="men">
             <TableHeader title={`${brand} 남성 사이즈 가이드`} subtitle="(단위 : CM, 신체 사이즈 기준)" />
-            <SizeTable 
+            <SizeTable
               title="탑 / 자켓 / 셔츠"
               columns={['사이즈', '사이즈', '한국', '가슴둘레', '허리둘레']}
               keys={['size', 'num', 'kr', 'chest', 'waist']}
               data={MEN_TOPS}
             />
-            <SizeTable 
+            <SizeTable
               title="바지 / 팬츠"
-              columns={['사이즈', '사이즈', '한국', '허리둘레', '엉덩이']}
-              keys={['size', 'num', 'kr', 'waist', 'hips']}
+              columns={['사이즈', '사이즈', '한국', '허리둘레']}
+              keys={['size', 'num', 'kr', 'waist']}
               data={MEN_BOTTOMS}
             />
           </TabsContent>
 
           <TabsContent value="shoes">
             <TableHeader title={`${brand} 신발 사이즈 가이드`} subtitle="(단위 : MM, 한국 사이즈 기준)" />
-            <SizeTable 
+            <SizeTable
               title="신발"
               columns={['EU 사이즈', '한국 (mm)', 'EU 사이즈', '한국 (mm)']}
               keys={['eu1', 'kr1', 'eu2', 'kr2']}
               data={SHOES_DATA}
             />
           </TabsContent>
-          
+
           <TabsContent value="kids">
             <TableHeader title={`${brand} 키즈 사이즈 가이드`} subtitle="(단위 : CM, 신체 사이즈 기준)" />
-            <SizeTable 
+            <SizeTable
               title="아동복 (남/여 공용)"
               columns={['나이', '신장', '가슴둘레', '허리둘레']}
               keys={['age', 'height', 'chest', 'waist']}
@@ -219,7 +219,7 @@ const ZaraLogo = () => (
 );
 
 const CommonLogo = () => (
-   <div className="text-4xl font-bold tracking-tight text-slate-900 font-nanum">SIZE GUIDE</div>
+  <div className="text-4xl font-bold tracking-tight text-slate-900 font-nanum">SIZE GUIDE</div>
 );
 
 const MassimoLogo = () => (
@@ -249,9 +249,9 @@ export function SizeGuide() {
         `}
       </style>
 
-      <div className="w-full max-w-[860px] font-nanum text-[#333]">
+      <div className="w-full max-w-[750px] font-nanum text-[#333]">
         <Tabs defaultValue="common" className="w-full">
-          
+
           {/* Top Navigation Tabs */}
           <TabsList className="w-full h-auto grid grid-cols-2 md:grid-cols-4 bg-slate-50 p-1 rounded-xl gap-1 mb-8 border border-slate-200">
             {[
@@ -260,8 +260,8 @@ export function SizeGuide() {
               { id: 'massimo', label: 'Massimo Dutti' },
               { id: 'hm', label: 'H&M' }
             ].map((tab) => (
-              <TabsTrigger 
-                key={tab.id} 
+              <TabsTrigger
+                key={tab.id}
                 value={tab.id}
                 className="text-xs md:text-sm font-bold py-2.5 rounded-lg data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm text-slate-400"
               >
@@ -271,15 +271,15 @@ export function SizeGuide() {
           </TabsList>
 
           <TabsContent value="common" className="mt-0">
-            <BrandPage 
-              brand="통합" 
+            <BrandPage
+              brand="통합"
               LogoComponent={<CommonLogo />}
               description="여러 브랜드의 사이즈를 아우르는 통합 가이드입니다. 브랜드별 상세 사이즈는 상단 탭을 이용해주세요."
             />
           </TabsContent>
 
           <TabsContent value="zara" className="mt-0">
-            <BrandPage 
+            <BrandPage
               brand="ZARA"
               url="https://zara.com/es"
               LogoComponent={<ZaraLogo />}
@@ -292,7 +292,7 @@ export function SizeGuide() {
           </TabsContent>
 
           <TabsContent value="massimo" className="mt-0">
-             <BrandPage 
+            <BrandPage
               brand="Massimo Dutti"
               url="https://www.massimodutti.com/"
               LogoComponent={<MassimoLogo />}
@@ -304,7 +304,7 @@ export function SizeGuide() {
           </TabsContent>
 
           <TabsContent value="hm" className="mt-0">
-            <BrandPage 
+            <BrandPage
               brand="H&M"
               url="https://www2.hm.com/"
               LogoComponent={<HMLogo />}
