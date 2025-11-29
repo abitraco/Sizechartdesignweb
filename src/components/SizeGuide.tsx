@@ -104,7 +104,7 @@ const SizeTable = ({ title, columns, data, keys }: any) => (
       {title}
     </div>
     <div className="overflow-x-auto">
-      <table className="w-full text-center border-collapse min-w-[700px]">
+      <table className="w-full text-center border-collapse min-w-[350px]">
         <thead>
           <tr className="bg-slate-50/50 border-b border-slate-200 text-sm md:text-base text-slate-700">
             {columns.map((col: string, i: number) => (
