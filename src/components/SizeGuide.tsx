@@ -341,7 +341,7 @@ const BRANDS = [
   {
     id: 'hm',
     label: 'H&M',
-    url: 'https://www2.hm.com/',
+    url: 'https://www.hm.com/',
     description: <>지속 가능한 패션을 지향하는 글로벌 패션 브랜드입니다.<br className="hidden md:block" />다양한 스타일과 합리적인 가격으로 전 세계적인 사랑을 받고 있습니다.</>,
     LogoComponent: () => (
       <svg width="160" height="80" viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg">
