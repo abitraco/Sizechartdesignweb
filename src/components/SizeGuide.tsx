@@ -27,7 +27,7 @@ const BrandHeader = ({ brand, url, description, LogoComponent }: BrandHeaderProp
       </a>
     )}
     {description && (
-      <p className="text-base md:text-lg leading-relaxed text-slate-800 break-keep max-w-2xl">
+      <p className="text-base md:text-2xl leading-relaxed text-slate-800 break-keep max-w-2xl">
         {description}
       </p>
     )}
@@ -35,14 +35,14 @@ const BrandHeader = ({ brand, url, description, LogoComponent }: BrandHeaderProp
 );
 
 const TableHeader = ({ title, subtitle }: { title: string, subtitle: string }) => (
-  <div className="text-center mb-8 space-y-2">
-    <h2 className="text-2xl md:text-2xl font-extrabold text-slate-900 tracking-tight">
+  <div className="text-center mb-10 space-y-3">
+    <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight break-keep">
       {title}
     </h2>
-    <p className="text-base md:text-lg font-bold text-slate-700">
+    <p className="text-xl md:text-2xl font-bold text-slate-700">
       {subtitle}
     </p>
-    <div className="pt-2 text-sm md:text-base text-blue-500 font-medium leading-relaxed">
+    <div className="pt-4 text-base md:text-lg text-blue-500 font-medium leading-relaxed break-keep">
       <p>브랜드 판매처에서 제공하는 사이즈 가이드 입니다.</p>
       <p>상품의 정확한 실측 치수가 아니기에 참고용으로 활용 부탁드립니다.</p>
     </div>
@@ -57,16 +57,16 @@ interface SizeTableProps {
 }
 
 const SizeTable = ({ title, columns, data, keys }: SizeTableProps) => (
-  <div className="mb-12 border border-slate-200 rounded-lg overflow-hidden">
-    <div className="bg-[#EEE] py-4 px-5 text-center font-bold text-slate-700 text-base md:text-lg">
+  <div className="mb-12">
+    <div className="bg-[#EEE] py-4 px-4 text-center font-bold text-slate-800 text-3xl rounded-t-lg border border-slate-300 border-b-0">
       {title}
     </div>
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto border border-slate-300 rounded-b-lg">
       <table className="w-full text-center border-collapse min-w-[350px]">
         <thead>
-          <tr className="bg-slate-50/50 border-b border-slate-200 text-sm md:text-base text-slate-700">
+          <tr className="bg-slate-50 text-2xl font-bold text-slate-800">
             {columns.map((col: string, i: number) => (
-              <th key={i} className={`py-4 px-3 font-medium ${i < columns.length - 1 ? 'border-r border-slate-100' : ''}`}>
+              <th key={i} className={`py-4 px-2 font-bold border-b border-slate-300 ${i < columns.length - 1 ? 'border-r border-slate-200' : ''} whitespace-nowrap ${i === 0 ? 'bg-slate-50 min-w-[100px]' : ''}`}>
                 {col}
               </th>
             ))}
@@ -74,9 +74,9 @@ const SizeTable = ({ title, columns, data, keys }: SizeTableProps) => (
         </thead>
         <tbody>
           {data.map((row: any, i: number) => (
-            <tr key={i} className="border-b border-slate-100 hover:bg-slate-50 text-sm md:text-base text-slate-600">
+            <tr key={i} className="hover:bg-slate-50 text-2xl font-bold text-slate-900">
               {keys.map((key: string, j: number) => (
-                <td key={j} className={`py-3.5 px-3 ${j < keys.length - 1 ? 'border-r border-slate-100' : ''}`}>
+                <td key={j} className={`py-4 px-2 border-b border-slate-200 ${j < keys.length - 1 ? 'border-r border-slate-200' : ''} ${i === data.length - 1 ? 'border-b-0' : ''} ${j === 0 ? 'bg-slate-50' : ''}`}>
                   {row[key]}
                 </td>
               ))}
@@ -116,7 +116,7 @@ const BrandPage = ({ brand, url, description, LogoComponent, sizeData }: BrandPa
     <div className="w-full flex flex-col gap-6">
       {/* Box 0: TITLE */}
       <div className="text-center bg-white border border-slate-200 rounded-2xl shadow-sm p-6 md:p-10">
-        <p className="text-2xl md:text-2xl font-extrabold text-slate-900 tracking-tight">스페인샵 사이즈 가이드</p>
+        <p className="text-4xl font-extrabold text-slate-900 tracking-tight">스페인샵 사이즈 가이드</p>
       </div>
 
       {/* Box 1: Brand Introduction */}
@@ -125,7 +125,7 @@ const BrandPage = ({ brand, url, description, LogoComponent, sizeData }: BrandPa
       </div>
 
       {/* Box 2: Size Guide Content */}
-      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-2 md:p-10">
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 md:p-4">
         <Tabs defaultValue={tabs[0]} className="w-full">
           <TabsList className="w-full h-auto grid grid-cols-4 bg-slate-50 p-1 rounded-xl gap-1 mb-10">
             {tabs.map((tab: string) => (

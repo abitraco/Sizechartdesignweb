@@ -45,6 +45,16 @@ export const MEN_TOPS = [
     { size: 'XXL', num: '58', kr: '115', chest: '118-124', waist: '106-110' },
 ];
 
+export const MEN_SUITS = [
+    { size: '46', kr: '90-95' },
+    { size: '48', kr: '95-100' },
+    { size: '50', kr: '100-105' },
+    { size: '52', kr: '105-110' },
+    { size: '54', kr: '110-115' },
+    { size: '56', kr: '115-120' },
+];
+
+
 export const MEN_BOTTOMS = [
     { size: 'XS', num: '38', kr: '28', waist: '74-78' },
     { size: 'S', num: '40', kr: '30', waist: '78-82' },
@@ -71,13 +81,13 @@ export const ZARA_MEN_SUITS = [
 ];
 
 export const ZARA_MEN_PANTS = [
-    { size: '36', kr: '73', jeans: '29' },
-    { size: '38', kr: '76', jeans: '30' },
-    { size: '40', kr: '79', jeans: '31' },
-    { size: '42', kr: '82', jeans: '32' },
-    { size: '44', kr: '85', jeans: '34' },
-    { size: '46', kr: '88', jeans: '36' },
-    { size: '48', kr: '91', jeans: '38' },
+    { size: '36', kr: '29', waist: '73~75' },
+    { size: '38', kr: '30', waist: '76~78' },
+    { size: '40', kr: '31', waist: '78~80' },
+    { size: '42', kr: '32', waist: '81~83' },
+    { size: '44', kr: '34', waist: '86~88' },
+    { size: '46', kr: '36', waist: '91~93' },
+    { size: '48', kr: '38', waist: '96~98' },
 ];
 
 export const ZARA_MEN_SPORTS = [
@@ -108,14 +118,15 @@ export const COMMON_WOMEN_SHOES = [
 ];
 
 export const COMMON_MEN_SHOES = [
-    { eu: '39', kr: '250' },
-    { eu: '40', kr: '255' },
-    { eu: '41', kr: '260' },
-    { eu: '42', kr: '265' },
+    { eu: '39', kr: '255' },
+    { eu: '40', kr: '260' },
+    { eu: '41', kr: '265' },
+    { eu: '42', kr: '270' },
     { eu: '43', kr: '275' },
-    { eu: '44', kr: '280' },
+    { eu: '44', kr: '285' },
     { eu: '45', kr: '290' },
-    { eu: '46', kr: '300' },
+    { eu: '46', kr: '295' },
+    { eu: '47', kr: '305' },
 ];
 
 export const KIDS_DATA = [
@@ -198,10 +209,46 @@ export const BIMBAYLOLA_WOMEN_CLOTHING = [
 export const BRAND_SIZE_DATA: any = {
     common: {
         tabs: ['women', 'men', 'shoes', 'kids'],
-        womenTops: WOMEN_TOPS,
-        womenBottoms: WOMEN_BOTTOMS,
-        menTops: MEN_TOPS,
-        menBottoms: MEN_BOTTOMS,
+        women: [
+            {
+                title: '탑 / 블라우스 / 원피스',
+                columns: ['사이즈', '유럽사이즈', '한국사이즈', '가슴둘레', '허리둘레'],
+                keys: ['size', 'num', 'kr', 'bust', 'waist'],
+                data: WOMEN_TOPS
+            },
+            {
+                title: '스커트 / 바지',
+                columns: ['사이즈', '유럽사이즈', '한국사이즈', '허리둘레'],
+                keys: ['size', 'num', 'kr', 'waist'],
+                data: WOMEN_BOTTOMS
+            }
+        ],
+        men: [
+            {
+                title: '아우터 / 상의',
+                columns: ['사이즈', '한국사이즈'],
+                keys: ['size', 'kr'],
+                data: MEN_TOPS
+            },
+            {
+                title: '수트 / 블레이저',
+                columns: ['사이즈', '한국사이즈'],
+                keys: ['size', 'kr'],
+                data: MEN_SUITS
+            },
+            {
+                title: '팬츠 / 반바지 / 속옷',
+                columns: ['사이즈', '한국사이즈(허리인치)'],
+                keys: ['size', 'kr'],
+                data: ZARA_MEN_SPORTS
+            },
+            {
+                title: '바지 / 청바지',
+                columns: ['EU사이즈', '한국사이즈(인치)', '허리둘레(CM)'],
+                keys: ['size', 'kr', 'waist'],
+                data: ZARA_MEN_PANTS
+            },
+        ],
         shoes: [
             {
                 title: '여성 신발',
@@ -248,13 +295,13 @@ export const BRAND_SIZE_DATA: any = {
         women: [
             {
                 title: '탑 / 블라우스 / 원피스',
-                columns: ['사이즈', '사이즈', '한국', '가슴둘레', '허리둘레'],
+                columns: ['사이즈', '유럽사이즈', '한국사이즈', '가슴둘레', '허리둘레'],
                 keys: ['size', 'num', 'kr', 'bust', 'waist'],
                 data: WOMEN_TOPS
             },
             {
                 title: '스커트 / 바지',
-                columns: ['사이즈', '사이즈', '한국', '허리둘레'],
+                columns: ['사이즈', '유럽사이즈', '한국사이즈', '허리둘레'],
                 keys: ['size', 'num', 'kr', 'waist'],
                 data: WOMEN_BOTTOMS
             }
@@ -262,25 +309,25 @@ export const BRAND_SIZE_DATA: any = {
         men: [
             {
                 title: '코트 / 점퍼 / 재킷 / 티셔츠 / 폴로셔츠 / 스웨터',
-                columns: ['사이즈', '한국'],
+                columns: ['EU사이즈', '한국사이즈'],
                 keys: ['size', 'kr'],
                 data: ZARA_MEN_TOPS
             },
             {
                 title: '수트 / 블레이저',
-                columns: ['사이즈', '한국'],
+                columns: ['EU사이즈', '한국사이즈'],
                 keys: ['size', 'kr'],
                 data: ZARA_MEN_SUITS
             },
             {
                 title: '바지 / 청바지',
-                columns: ['사이즈', '한국(바지)', '청바지'],
-                keys: ['size', 'kr', 'jeans'],
+                columns: ['EU사이즈', '한국사이즈', '허리둘레'],
+                keys: ['size', 'kr', 'waist'],
                 data: ZARA_MEN_PANTS
             },
             {
                 title: '스포츠 팬츠 / 트레이닝 팬츠 / 반바지 / 속옷',
-                columns: ['사이즈', '한국'],
+                columns: ['사이즈', '한국사이즈(허리인치)'],
                 keys: ['size', 'kr'],
                 data: ZARA_MEN_SPORTS
             }
@@ -288,33 +335,33 @@ export const BRAND_SIZE_DATA: any = {
         shoes: [
             {
                 title: '여성 신발',
-                columns: ['EU', '발길이(cm)'],
-                keys: ['eu', 'cm'],
+                columns: ['EU사이즈', '한국사이즈'],
+                keys: ['eu', 'kr'],
                 data: [
-                    { eu: '35', cm: '22.4' },
-                    { eu: '36', cm: '23.0' },
-                    { eu: '37', cm: '23.6' },
-                    { eu: '38', cm: '24.3' },
-                    { eu: '39', cm: '24.9' },
-                    { eu: '40', cm: '26.0' },
-                    { eu: '41', cm: '26.5' },
-                    { eu: '42', cm: '27.0' },
+                    { eu: '35', kr: '230' },
+                    { eu: '36', kr: '235' },
+                    { eu: '37', kr: '240' },
+                    { eu: '38', kr: '245' },
+                    { eu: '39', kr: '255' },
+                    { eu: '40', kr: '260' },
+                    { eu: '41', kr: '265' },
+                    { eu: '42', kr: '270' },
                 ]
             },
             {
                 title: '남성 신발',
-                columns: ['EU', '발길이(cm)'],
-                keys: ['eu', 'cm'],
+                columns: ['EU사이즈', '한국사이즈'],
+                keys: ['eu', 'kr'],
                 data: [
-                    { eu: '39', cm: '25.5' },
-                    { eu: '40', cm: '26.0' },
-                    { eu: '41', cm: '26.5' },
-                    { eu: '42', cm: '27.0' },
-                    { eu: '43', cm: '28.0' },
-                    { eu: '44', cm: '28.5' },
-                    { eu: '45', cm: '29.0' },
-                    { eu: '46', cm: '29.5' },
-                    { eu: '47', cm: '30.0' },
+                    { eu: '39', kr: '255' },
+                    { eu: '40', kr: '260' },
+                    { eu: '41', kr: '265' },
+                    { eu: '42', kr: '270' },
+                    { eu: '43', kr: '275' },
+                    { eu: '44', kr: '285' },
+                    { eu: '45', kr: '290' },
+                    { eu: '46', kr: '295' },
+                    { eu: '47', kr: '305' },
                 ]
             }
         ]
@@ -324,7 +371,7 @@ export const BRAND_SIZE_DATA: any = {
         women: [
             {
                 title: '아우터, 상의, 원피스',
-                columns: ['사이즈', 'EU 사이즈', '가슴둘레(cm)', '허리둘레(cm)', '팔길이(cm)', '엉덩이둘레(cm)'],
+                columns: ['사이즈', 'EU 사이즈', '가슴(cm)', '허리', '팔길이', '엉덩이'],
                 keys: ['size', 'num', 'chest', 'waist', 'arm', 'hip'],
                 data: [
                     { size: 'XXS', num: '32', chest: '74-78', waist: '58-62', arm: '59', hip: '82-86' },
@@ -377,7 +424,7 @@ export const BRAND_SIZE_DATA: any = {
         men: [
             {
                 title: '아우터, 상의 (S~XXXL)',
-                columns: ['사이즈', '가슴둘레(cm)', '허리둘레(cm)', '팔길이(cm)'],
+                columns: ['사이즈', '가슴(cm)', '허리(cm)', '팔길이(cm)'],
                 keys: ['size', 'chest', 'waist', 'arm'],
                 data: [
                     { size: 'S', chest: '88-92', waist: '76-80', arm: '59.5' },
@@ -390,7 +437,7 @@ export const BRAND_SIZE_DATA: any = {
             },
             {
                 title: '하의 (S~XXXL)',
-                columns: ['사이즈', '허리둘레(cm)', '엉덩이둘레(cm)'],
+                columns: ['사이즈', '허리(cm)', '엉덩이(cm)'],
                 keys: ['size', 'waist', 'seat'],
                 data: [
                     { size: 'S', waist: '76-80', seat: '96' },
