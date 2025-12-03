@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { BRAND_SIZE_DATA } from '../data/brandSizeData';
+import { BRAND_SIZE_DATA as INITIAL_DATA } from '../data/brandSizeData';
+import { fetchSizeData } from '../services/sizeDataService';
+
+// --- Configuration ---
+// TODO: 구글 시트의 "파일 > 공유 > 웹에 게시" 에서 "CSV" 형식을 선택하고 생성된 링크를 아래에 입력하세요.
+const GOOGLE_SHEET_CSV_URL = "1nzPyuZiU9SW8NKlaXnXylglysNn1BGCafVCxw0UpCDc";
 
 // --- Components ---
 
@@ -577,6 +582,19 @@ const KIDS_BRANDS = [
 ];
 
 export function SizeGuide() {
+  const [sizeData, setSizeData] = useState<any>(INITIAL_DATA);
+
+  useEffect(() => {
+    if (GOOGLE_SHEET_CSV_URL) {
+      let url = GOOGLE_SHEET_CSV_URL;
+      // If it looks like a Sheet ID (no slashes, long string), construct the export URL
+      if (!url.includes('/') && url.length > 20) {
+        url = `https://docs.google.com/spreadsheets/d/${url}/export?format=csv`;
+      }
+      fetchSizeData(url).then(setSizeData);
+    }
+  }, []);
+
   return (
     <div className="w-full flex justify-center p-2 md:p-8 font-sans">
       <style>
@@ -638,7 +656,7 @@ export function SizeGuide() {
                 url={brand.url}
                 LogoComponent={<brand.LogoComponent />}
                 description={brand.description}
-                sizeData={BRAND_SIZE_DATA[brand.id] || BRAND_SIZE_DATA['common']}
+                sizeData={sizeData[brand.id] || sizeData['common']}
               />
             </TabsContent>
           ))}
@@ -650,7 +668,7 @@ export function SizeGuide() {
                 url={brand.url}
                 LogoComponent={<brand.LogoComponent />}
                 description={brand.description}
-                sizeData={BRAND_SIZE_DATA[brand.id]}
+                sizeData={sizeData[brand.id]}
               />
             </TabsContent>
           ))}
