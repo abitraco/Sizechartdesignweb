@@ -107,7 +107,7 @@ const processCsvRows = (rows: SizeDataRow[]) => {
 
         // Sort tabs if needed (women, men, shoes, kids)
         const sortedTabs = Array.from(tabsSet).sort((a, b) => {
-            const order = ['women', 'men', 'shoes', 'kids'];
+            const order = ['women', 'men', 'kids', 'shoes'];
             return order.indexOf(a) - order.indexOf(b);
         });
 
